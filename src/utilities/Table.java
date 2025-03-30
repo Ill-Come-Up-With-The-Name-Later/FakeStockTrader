@@ -259,7 +259,7 @@ public class Table<T> {
      * @param index The index of the column to retrieve
      * @return The column at <code>index</code>
      */
-    public Column getColum(int index) {
+    public Column getColumn(int index) {
         return this.columns.get(index);
     }
 
@@ -378,7 +378,7 @@ public class Table<T> {
      * @return The table
      */
     public Table<T> setColTitle(int index, String title) {
-        this.getColum(index).setTitle(title);
+        this.getColumn(index).setTitle(title);
         return this;
     }
 
