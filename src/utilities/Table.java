@@ -42,6 +42,7 @@ public class Table<T> {
 
         /**
          * Row size
+         *
          * @return The size of the row
          */
         public int getSize() {
@@ -350,6 +351,7 @@ public class Table<T> {
     /**
      * Prints out the table, supports formatting table values and spacing out
      * column titles
+     *
      * @param format The formatting for the table values
      * @param numTabs The number of <code>\t (tabs)</code> between column titles
      */
