@@ -11,6 +11,7 @@ public abstract class Asset {
     // TODO: Add more generic properties that apply to other assets
     private double price;
     private final ArrayList<Double> previousPrices = new ArrayList<>();
+    private Status status;
 
     /**
      * Price of the asset
@@ -22,6 +23,15 @@ public abstract class Asset {
     }
 
     /**
+     * Sets the asset's price
+     *
+     * @param price The new price of this <code>Asset</code>
+     */
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    /**
      * An <code>ArrayList</code> of previous
      * prices of the asset
      *
@@ -29,5 +39,23 @@ public abstract class Asset {
      */
     public ArrayList<Double> getPreviousPrices() {
         return previousPrices;
+    }
+
+    /**
+     * The status of the price of this asset
+     *
+     * @return This asset's price's status
+     */
+    public Status getStatus() {
+        return status;
+    }
+
+    /**
+     * Sets the status of this asset's price
+     *
+     * @param status The status of this asset's price
+     */
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
