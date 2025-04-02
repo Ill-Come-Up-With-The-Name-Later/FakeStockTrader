@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public abstract class Asset {
 
-    // TODO: Add more generic properties that apply to other assets
+    // TODO: Add more generic properties that apply to other trading.assets
     private double price;
     private final ArrayList<Double> previousPrices = new ArrayList<>();
     private Status status;

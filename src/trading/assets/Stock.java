@@ -1,4 +1,4 @@
-package market;
+package trading.assets;
 
 import utilities.Asset;
 
