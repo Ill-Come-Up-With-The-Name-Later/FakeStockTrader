@@ -4,6 +4,7 @@ package utilities;
  * Represents a day in time such as January 1, 1970.
  */
 public class Date implements Comparable<Date> {
+
     public enum Month {
 
         JANUARY,
