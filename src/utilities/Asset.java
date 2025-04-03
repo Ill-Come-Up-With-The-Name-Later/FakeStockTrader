@@ -15,7 +15,7 @@ public abstract class Asset {
     private int amount;
 
     /**
-     * Price of the asset
+     * Price of the asset. The price is for one of the asset.
      *
      * @return The price of this asset
      */
@@ -24,7 +24,7 @@ public abstract class Asset {
     }
 
     /**
-     * Sets the asset's price
+     * Sets the asset's price. The price is for one of the asset.
      *
      * @param price The new price of this <code>Asset</code>
      */
@@ -80,7 +80,7 @@ public abstract class Asset {
 
     /**
      * Calculates the asset's price.
-     * Likely will be amount * price per amount
+     * Likely will be amount * price per
      *
      * @return The price of the asset
      */

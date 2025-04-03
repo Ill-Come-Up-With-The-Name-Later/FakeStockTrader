@@ -7,4 +7,9 @@ import utilities.Asset;
  * Has a price per share.
  */
 public class Stock extends Asset {
+
+    @Override
+    public double calculatePrice() {
+        return this.getPrice() * this.getAmount();
+    }
 }
