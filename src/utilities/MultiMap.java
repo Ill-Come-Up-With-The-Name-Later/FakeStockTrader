@@ -1,6 +1,7 @@
 package utilities;
 
 import java.util.*;
+import java.util.function.Predicate;
 
 /**
  * A Map that can hold multiple values associated to one key.
@@ -180,6 +181,28 @@ public class MultiMap<V> {
         for(final Object object : values) {
             if(cls.isAssignableFrom(object.getClass())) {
                 items.add((T) object);
+            }
+        }
+
+        return items;
+    }
+
+    /**
+     * Gets items associated with <code>key</code>
+     * based upon a filter
+     *
+     * @param key The key
+     * @param predicate The filter
+     * @return A list of items associated with <code>key</code> that satisfy
+     * <code>predicate</code>
+     */
+    public ArrayList<Object> get(V key, Predicate<Object> predicate) {
+        ArrayList<Object> values = this.get(key);
+        ArrayList<Object> items = new ArrayList<>();
+
+        for(Object object : values) {
+            if(predicate.test(object)) {
+                items.add(object);
             }
         }
 
