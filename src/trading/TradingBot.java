@@ -5,17 +5,15 @@ import utilities.Asset;
 /**
  * An automatic bot that trades shares of stocks.
  * Has a portfolio and money.
- *
- * @param <T> The type of the asset the bot is trading
  */
-public class TradingBot<T extends Asset> {
+public class TradingBot {
 
-    private Portfolio<T> portfolio;
+    private Portfolio portfolio;
     private final double startingCash;
     private double currentCash;
 
     public TradingBot() {
-        this.portfolio = new Portfolio<>();
+        this.portfolio = new Portfolio();
         this.startingCash = 0;
         this.currentCash = this.startingCash;
     }
@@ -25,7 +23,7 @@ public class TradingBot<T extends Asset> {
         this.currentCash = this.startingCash;
     }
 
-    public TradingBot(double startingCash, Portfolio<T> portfolio) {
+    public TradingBot(double startingCash, Portfolio portfolio) {
         this.startingCash = startingCash;
         this.currentCash = this.startingCash;
         this.portfolio = portfolio;
@@ -36,7 +34,7 @@ public class TradingBot<T extends Asset> {
      *
      * @return The bot's portfolio
      */
-    public Portfolio<T> getPortfolio() {
+    public Portfolio getPortfolio() {
         return portfolio;
     }
 
@@ -78,7 +76,7 @@ public class TradingBot<T extends Asset> {
         }
 
         this.currentCash -= asset.getPrice();
-        // TODO: ADD ASSET TO PORTFOLIO
+        this.portfolio.addAsset(asset);
     }
 
     /**
@@ -88,7 +86,7 @@ public class TradingBot<T extends Asset> {
      */
     public void sellAsset(Asset asset) {
         this.currentCash += asset.getPrice();
-        // TODO: REMOVE ASSET FROM PORTFOLIO
+        this.portfolio.removeAsset(asset);
     }
 
     /**
@@ -97,7 +95,7 @@ public class TradingBot<T extends Asset> {
      * @return The amount of profit made by the bot
      */
     public double profit() {
-        return this.currentCash - this.startingCash;
+        return this.totalCash() - this.startingCash;
     }
 
     /**
@@ -107,5 +105,15 @@ public class TradingBot<T extends Asset> {
      */
     public boolean profited() {
         return this.profit() > 0;
+    }
+
+    /**
+     * The total cash this bot has. Inclusive of
+     * portfolio value and current cash on hand
+     *
+     * @return The bot's total cash
+     */
+    public double totalCash() {
+        return this.portfolio.value() + this.currentCash;
     }
 }
