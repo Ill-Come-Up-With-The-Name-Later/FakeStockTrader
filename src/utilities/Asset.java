@@ -12,6 +12,7 @@ public abstract class Asset {
     private double price;
     private final ArrayList<Double> previousPrices = new ArrayList<>();
     private Status status;
+    private int amount;
 
     /**
      * Price of the asset
@@ -58,4 +59,30 @@ public abstract class Asset {
     public void setStatus(Status status) {
         this.status = status;
     }
+
+    /**
+     * Sets the amount of the asset
+     *
+     * @param amount The new amount of the asset
+     */
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    /**
+     * The amount of the asset
+     *
+     * @return The amount of the asset
+     */
+    public int getAmount() {
+        return amount;
+    }
+
+    /**
+     * Calculates the asset's price.
+     * Likely will be amount * price per amount
+     *
+     * @return The price of the asset
+     */
+    public abstract double calculatePrice();
 }
