@@ -43,3 +43,10 @@ npm-debug.log*
 # Environment variables
 .env
 .env.local
+
+# IntelliJ IDEA specific files
+.idea/
+*.iml
+*.iws
+out/
+.idea_modules/
