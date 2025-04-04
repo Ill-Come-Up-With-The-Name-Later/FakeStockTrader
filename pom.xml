@@ -14,12 +14,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <!-- Evaluate if SpringBoot was the right choice -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>3.4.4</version>
     </parent>
 
+    <!-- Evaluate if SpringBoot was the right choice -->
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>

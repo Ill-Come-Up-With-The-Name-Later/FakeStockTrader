@@ -2,6 +2,8 @@ package trading;
 
 import utilities.Asset;
 
+import java.util.HashMap;
+
 /**
  * An automatic bot that trades shares of stocks.
  * Has a portfolio and money.
@@ -11,22 +13,26 @@ public class TradingBot {
     private Portfolio portfolio;
     private final double startingCash;
     private double currentCash;
+    private final HashMap<Asset, Double> initialAssetBuyPrice;
 
     public TradingBot() {
         this.portfolio = new Portfolio();
         this.startingCash = 0;
         this.currentCash = this.startingCash;
+        this.initialAssetBuyPrice = new HashMap<>();
     }
 
     public TradingBot(double startingCash) {
         this.startingCash = startingCash;
         this.currentCash = this.startingCash;
+        this.initialAssetBuyPrice = new HashMap<>();
     }
 
     public TradingBot(double startingCash, Portfolio portfolio) {
         this.startingCash = startingCash;
         this.currentCash = this.startingCash;
         this.portfolio = portfolio;
+        this.initialAssetBuyPrice = new HashMap<>();
     }
 
     /**
@@ -77,6 +83,7 @@ public class TradingBot {
 
         this.currentCash -= asset.getPrice();
         this.portfolio.addAsset(asset);
+        this.initialAssetBuyPrice.put(asset, asset.getPrice());
     }
 
     /**
@@ -95,7 +102,7 @@ public class TradingBot {
      * @return The amount of profit made by the bot
      */
     public double profit() {
-        return this.totalCash() - this.startingCash;
+        return this.netWorth() - this.startingCash;
     }
 
     /**
@@ -111,9 +118,19 @@ public class TradingBot {
      * The total cash this bot has. Inclusive of
      * portfolio value and current cash on hand
      *
-     * @return The bot's total cash
+     * @return The bot's net worth
      */
-    public double totalCash() {
+    public double netWorth() {
         return this.portfolio.value() + this.currentCash;
+    }
+
+    /**
+     * The price the asset was bought for by the bot
+     *
+     * @param asset The asset
+     * @return The initial price paid for the asset
+     */
+    public double getInitialBuyPrice(Asset asset) {
+        return initialAssetBuyPrice.get(asset);
     }
 }
