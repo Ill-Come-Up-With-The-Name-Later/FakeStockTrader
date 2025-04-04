@@ -1,25 +1,19 @@
 {
   "name": "fakestocktrader",
+  "private": true,
   "version": "1.0.0",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Ill-Come-Up-With-The-Name-Later/FakeStockTrader.git"
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.3",
+    "vite": "^6.2.2",
+    "vite-plugin-restart": "^0.4.2"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Ill-Come-Up-With-The-Name-Later/FakeStockTrader/issues"
-  },
-  "homepage": "https://github.com/Ill-Come-Up-With-The-Name-Later/FakeStockTrader#readme",
-  "description": "",
   "dependencies": {
-    "vite": "^6.2.3"
+    "react": "19.0",
+    "react-dom": "19.0"
   }
 }
