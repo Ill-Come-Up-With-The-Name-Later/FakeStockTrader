@@ -1,6 +1,7 @@
 package utilities;
 
 import java.util.ArrayList;
+import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -205,7 +206,7 @@ public class Table<T> {
     }
 
     private final ArrayList<Column> columns;
-    private final ArrayList<Row<T>> rows;
+    private ArrayList<Row<T>> rows;
 
     /**
      * Constructs a table with no rows or columns
@@ -459,5 +460,26 @@ public class Table<T> {
         for(int i = 0; i < titles.size(); i++) {
             this.setColTitle(i, titles.get(i));
         }
+    }
+
+    /**
+     * Applies a function to all the values
+     * in each row of the table
+     *
+     * @param function The function to apply
+     */
+    public void map(Function<T, T> function) {
+        ArrayList<Row<T>> rows = new ArrayList<>();
+
+        for(Row<T> row : this.rows) {
+            ArrayList<T> mappedRow = row.getValues().stream().map(function)
+                    .collect(Collectors.toCollection(ArrayList::new));
+            Row<T> r = new Row<>(row.getSize());
+            r.setValues(mappedRow);
+
+            rows.add(row);
+        }
+
+        this.rows = rows;
     }
 }
