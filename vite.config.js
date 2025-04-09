@@ -1,6 +1,7 @@
 import react from '@vitejs/plugin-react'
 import { transformWithEsbuild } from 'vite'
 import restart from 'vite-plugin-restart'
+import tailwindcss from '@tailwindcss/vite'
 
 export default {
     root: 'src/',
@@ -12,6 +13,9 @@ export default {
 
         // React support
         react(),
+
+        // Tailwind CSS
+        tailwindcss(),
 
         // .js file support as if it was JSX
         {
