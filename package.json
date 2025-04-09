@@ -13,6 +13,7 @@
     "vite-plugin-restart": "^0.4.2"
   },
   "dependencies": {
+    "fakestocktrader": "file:",
     "react": "19.0",
     "react-dom": "19.0"
   }
