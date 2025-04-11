@@ -1,10 +1,16 @@
 @import "tailwindcss";
 
-.fraudButton
+#fraudButton
 {
     padding: 8px 16px;
 }
-.fraudButton:hover
+
+#fraudButton:hover
 {
     background-color: rgb(235, 0, 0);
+}
+
+#pageTitle {
+    font-size: 48pt;
+    justify-self: center;
 }
